@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: mundipagg-one-python
+Version: 1.0.1
+Summary: Sdk for integration with mundipagg payment api
+Home-page: https://github.com/mundipagg/mundipagg-one-python
+Author: Newton Rocha
+Author-email: nrocha@mundipagg.com
+License: Apache
+Description: UNKNOWN
+Keywords: mundipagg,rest,sdk,payments
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2.7
