@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
 from mundipaggOnePython.ConfigurationUtility import ConfigurationUtility
 from resource_clients import SaleResource, CreditCardResource, BuyerResource
 
@@ -34,15 +37,14 @@ class GatewayServiceClient(object):
             self.__credit_card = credit_card_resource
         else:
             self.__credit_card = None
-			
-	@property
-	def buyer(self):
-		return self.__buyer
-		
-	@buyer.setter
-	def buyer(self,buyer_resource):
-		if type(buyer_resource) is BuyerResource:
-			self.__buyer = buyer_resource
-		else:
-			self.__buyer = None
 
+    @property
+    def buyer(self):
+        return self.__buyer
+
+    @buyer.setter
+    def buyer(self,buyer_resource):
+        if type(buyer_resource) is BuyerResource:
+            self.__buyer = buyer_resource
+        else:
+            self.__buyer = None

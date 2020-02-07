@@ -1,4 +1,7 @@
-from GatewayServiceClient import GatewayServiceClient
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
+from mundipaggOnePython.GatewayServiceClient import GatewayServiceClient
 import data_contracts
 import enum_types
 import resource_clients

@@ -1,3 +1,6 @@
-from HttpContentTypeEnum import HttpContentTypeEnum
-from ManageOperationEnum import ManageOperationEnum
-from PlatformEnvironment import PlatformEnvironment
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
+from enum_types.HttpContentTypeEnum import HttpContentTypeEnum
+from enum_types.ManageOperationEnum import ManageOperationEnum
+from enum_types.PlatformEnvironment import PlatformEnvironment

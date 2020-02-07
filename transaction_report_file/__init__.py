@@ -1,2 +1,5 @@
-from TransactionReportParser import TransactionReportParser
-from TransactionReportClient import TransactionReport
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
+from transaction_report_file.TransactionReportParser import TransactionReportParser
+from transaction_report_file.TransactionReportClient import TransactionReport

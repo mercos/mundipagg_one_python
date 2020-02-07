@@ -1,3 +1,7 @@
+from __future__ import absolute_import
+from __future__ import print_function
+from __future__ import unicode_literals
+
 from datetime import datetime
 from uuid import UUID
 
@@ -20,7 +24,7 @@ class TransactionReportParser(object):
 
     @staticmethod
     def __parser_header(row, report):
-        print row
+        print(row)
         if len(row) != 4:
             raise ValueError('The expected parameter count for Header parser is 4.', len(row))
         header = {'transaction_processed_date': datetime.strptime(row[1], '%Y%m%d'),
@@ -35,14 +39,14 @@ class TransactionReportParser(object):
                        'merchant_name': row[4], 'transaction_key': UUID(row[5]), 'transaction_key_to_acquirer': row[6],
                        'transaction_reference': row[7], 'creditcard_brand': row[8], 'creditcard_number': row[9],
                        'installment_count': int(row[10]) if len(row[10].strip()) > 0 else 0, 'acquirer_name': row[11],
-                       'status': row[12], 'amount_in_cents': long(row[13]) if len(row[13].strip()) > 0 else long(0),
-                       'iata_amount_in_cents': long(row[14]) if len(row[14].strip()) > 0 else long(0),
+                       'status': row[12], 'amount_in_cents': int(row[13]) if len(row[13].strip()) > 0 else int(0),
+                       'iata_amount_in_cents': int(row[14]) if len(row[14].strip()) > 0 else int(0),
                        'authorization_code': row[15], 'transaction_identifier': row[16],
                        'unique_sequential_number': row[17],
-                       'authorized_amount_in_cents': long(row[18]) if len(row[18].strip()) > 0 else long(0),
-                       'captured_amount_in_cents': long(row[19]) if len(row[19].strip()) > 0 else long(0),
-                       'voided_amount_in_cents': long(row[20]) if len(row[20].strip()) > 0 else long(0),
-                       'refunded_amount_in_cents': long(row[21]) if len(row[21].strip()) > 0 else long(0),
+                       'authorized_amount_in_cents': int(row[18]) if len(row[18].strip()) > 0 else int(0),
+                       'captured_amount_in_cents': int(row[19]) if len(row[19].strip()) > 0 else int(0),
+                       'voided_amount_in_cents': int(row[20]) if len(row[20].strip()) > 0 else int(0),
+                       'refunded_amount_in_cents': int(row[21]) if len(row[21].strip()) > 0 else int(0),
                        'acquirer_authorization_return_code': row[22],
                        'authorized_date': datetime.strptime(row[23], "%Y-%m-%dT%H:%M:%S") if len(
                            row[23].strip()) > 0 else None,
@@ -64,8 +68,8 @@ class TransactionReportParser(object):
                        'status': row[7], 'nosso_numero': row[8], 'bank_number': row[9], 'agency': row[10],
                        'account': row[11], 'barcode': row[12],
                        'expiration_date': datetime.strptime(row[13], "%m/%d/%Y %I:%M:%S %p"),
-                       'amount_in_cents': long(row[14]) if len(row[14].strip()) > 0 else long(0),
-                       'amount_paid_in_cents': long(row[15]) if len(row[15].strip()) > 0 else long(0),
+                       'amount_in_cents': int(row[14]) if len(row[14].strip()) > 0 else int(0),
+                       'amount_paid_in_cents': int(row[15]) if len(row[15].strip()) > 0 else int(0),
                        'payment_date': datetime.strptime(row[16], "%m/%d/%Y %I:%M:%S %p") if len(
                            row[16].strip()) > 0 else None,
                        'credit_date': datetime.strptime(row[17], "%m/%d/%Y %I:%M:%S %p") if len(
@@ -80,8 +84,8 @@ class TransactionReportParser(object):
                        'merchant_name': row[4], 'transaction_key': UUID(row[5]),
                        'transaction_reference': row[6], 'bank': row[7],
                        'status': row[8],
-                       'amount_in_cents': long(row[9]) if len(row[9].strip()) > 0 else long(0),
-                       'amount_paid_in_cents': long(row[10]) if len(row[10].strip()) > 0 else long(0),
+                       'amount_in_cents': int(row[9]) if len(row[9].strip()) > 0 else int(0),
+                       'amount_paid_in_cents': int(row[10]) if len(row[10].strip()) > 0 else int(0),
                        'payment_date': datetime.strptime(row[11], "%m/%d/%Y %I:%M:%S %p") if len(
                            row[11].strip()) > 0 else None,
                        'bank_return_code': row[12], 'bank_payment_date': row[13], 'signature': row[14],
@@ -92,6 +96,6 @@ class TransactionReportParser(object):
     def __parser_trailer(row, report):
         if len(row) != 5:
             raise ValueError("The expected parameter count for Trailer parser is 5", len(row))
-        trailer = {'order_data_count': long(row[1]), 'creditcard_transaction_data_count': long(row[2]),
-                   'boleto_transaction_data_count': long(row[3]), 'online_debit_transaction_data_count': long(row[4])}
+        trailer = {'order_data_count': int(row[1]), 'creditcard_transaction_data_count': int(row[2]),
+                   'boleto_transaction_data_count': int(row[3]), 'online_debit_transaction_data_count': int(row[4])}
         report['trailer'] = trailer
