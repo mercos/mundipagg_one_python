@@ -1,6 +1,9 @@
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
 import requests
 import json
-from AbstractResource import AbstractResource
+from resource_clients.AbstractResource import AbstractResource
 from uuid import UUID
 from data_contracts import buyer
 
@@ -11,7 +14,7 @@ class uuid_serialize(json.JSONEncoder):
           return str(obj)
             # Let the base class default method raise the TypeError
         return json.JSONEncoder.default(self, obj)
-		
+
 
 class BuyerResource(AbstractResource):
 
@@ -21,7 +24,7 @@ class BuyerResource(AbstractResource):
     def get_buyer(self, buyer_key):
         action_name = '/' + str(buyer_key)
         request_headers = {"merchantKey": str(self.merchant_key), 'Content-Type': 'application/json', 'Accept': 'application/json'}
-        
+
         return requests.get(self.host_uri + self.resource_name + action_name, headers=request_headers)
 
     def create_buyer(self, buyer_request):

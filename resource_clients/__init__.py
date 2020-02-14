@@ -1,4 +1,7 @@
-from AbstractResource import AbstractResource
-from CreditCardResource import CreditCardResource
-from SaleResource import SaleResource
-from BuyerResource import BuyerResource
+from __future__ import absolute_import
+from __future__ import unicode_literals
+
+from resource_clients.AbstractResource import AbstractResource
+from resource_clients.CreditCardResource import CreditCardResource
+from resource_clients.SaleResource import SaleResource
+from resource_clients.BuyerResource import BuyerResource
