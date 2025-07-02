@@ -1,3 +1,7 @@
+📦 Repository Archived
+
+This repository has been archived and is no longer maintained, as it is no longer in use.
+
 # mundipagg_one_python
 
 A copy from `mundipagg/mundipagg_one_python` deleted git repo and pypi.
